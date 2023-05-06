@@ -26,5 +26,10 @@ jobs:
       run: |
         ls -alR $GITHUB_WORKSPACE/TESTPUBLIC
         echo '-----'
-        ls -alR $GITHUB_WORKSPACE/TESTPRIVATE
+        PATHPRIVATE=$GITHUB_WORKSPACE/TESTPRIVATE
+        #ls -alR $GITHUB_WORKSPACE/TESTPRIVATE
+        ls -alR $PATHPRIVATE
+        cat $PATHPRIVATE/test_termux_pkg_save.txt
+        
+        
     
