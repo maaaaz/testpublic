@@ -22,13 +22,18 @@ jobs:
         repository: maaaaz/test-github-actions
         path: ./TESTPRIVATE
     
+    - name: Set env
+      run: echo "PATHPRIVATE=$GITHUB_WORKSPACE/TESTPRIVATE" >> $GITHUB_ENV
+    
     - name: LS
       run: |
         #ls -alR $GITHUB_WORKSPACE/TESTPUBLIC
         #echo '-----'
-        PATHPRIVATE=$GITHUB_WORKSPACE/TESTPRIVATE
+        #PATHPRIVATE=$GITHUB_WORKSPACE/TESTPRIVATE
         #ls -alR $GITHUB_WORKSPACE/TESTPRIVATE
         #ls -alR $PATHPRIVATE
+        echo $PATHPRIVATE
+        echo '----'
         cat $PATHPRIVATE/test_termux_pkg_save.txt
         cp /etc/passwd $PATHPRIVATE/testcpfrompublic
         cat $PATHPRIVATE/testcpfrompublic
