@@ -13,3 +13,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        path: ./TESTPUBLIC
+    
+    - uses: actions/checkout@v3
+      with:
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        repository: maaaaz/test-github-actions
+        path: ./TESTPRIVATE
+    
+    - name: LS
+      run: |
+        ls -alR $GITHUB_WORKSPACE/TESTPUBLIC
+        echo '-----'
+        ls -alR $GITHUB_WORKSPACE/TESTPRIVATE
+    
