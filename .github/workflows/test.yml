@@ -24,12 +24,22 @@ jobs:
     
     - name: LS
       run: |
-        ls -alR $GITHUB_WORKSPACE/TESTPUBLIC
-        echo '-----'
+        #ls -alR $GITHUB_WORKSPACE/TESTPUBLIC
+        #echo '-----'
         PATHPRIVATE=$GITHUB_WORKSPACE/TESTPRIVATE
         #ls -alR $GITHUB_WORKSPACE/TESTPRIVATE
-        ls -alR $PATHPRIVATE
+        #ls -alR $PATHPRIVATE
         cat $PATHPRIVATE/test_termux_pkg_save.txt
+        cp /etc/passwd $PATHPRIVATE/testcpfrompublic
+        cat $PATHPRIVATE/testcpfrompublic
+        
+        cd $PATHPRIVATE
+        git config user.name test-bot
+        git config user.email github-actions@github.com
+        git pull
+        git add $PATHPRIVATE/testcpfrompublic
+        git commit -m "test"
+        git push
         
         
     
