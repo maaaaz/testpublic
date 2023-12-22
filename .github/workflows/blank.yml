@@ -1,0 +1,17 @@
+name: GParted Live customization build script
+
+on: workflow_dispatch
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Customize env
+      run: |
+        set -xe
+        apt search mlocate
