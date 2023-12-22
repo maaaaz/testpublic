@@ -15,8 +15,8 @@ jobs:
       run: |
         set -xe
         
-        cat "yolo" > /tmp/test1
-        cat "swag" > /tmp/test2
+        echo "yolo" > /tmp/test1
+        echo "swag" > /tmp/test2
 
     - name: Create a new release
       uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 #v0.1.15
