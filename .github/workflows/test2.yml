@@ -23,6 +23,7 @@ jobs:
       with:
         body: "testbody"
         name: "testname"
+        tag_name: "testtagname"
         files: |
           /tmp/test1
           /tmp/test2
