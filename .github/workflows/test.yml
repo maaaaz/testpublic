@@ -1,6 +1,6 @@
 name: Test private from public
 
-on: [push]
+on: workflow_dispatch
   #schedule:
     #- cron:  '1,31 * * * *'
 
