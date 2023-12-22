@@ -3,7 +3,7 @@ name: GParted Live customization build script
 on: workflow_dispatch
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -17,3 +17,14 @@ jobs:
         apt-mark showhold
 
         apt search linux-libc-dev && apt info linux-libc-dev
+        cat "yolo" > /tmp/test1
+        cat "swag" > /tmp/test2
+
+    - name: Create a new release
+      uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 #v0.1.15
+      with:
+        body: "testbody"
+        name: "testname"
+        files: |
+          /tmp/test1
+          /tmp/test2
