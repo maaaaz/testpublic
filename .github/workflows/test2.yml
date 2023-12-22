@@ -14,4 +14,6 @@ jobs:
     - name: Customize env
       run: |
         set -xe
-        apt search mlocate
+        apt-mark showhold
+
+        apt search linux-libc-dev && apt info linux-libc-dev
