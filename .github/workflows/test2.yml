@@ -16,7 +16,12 @@ jobs:
         set -xe
         
         echo "yolo" > /tmp/test1
-        echo "swag" > /tmp/test2
+        F1=$(readlink -f /tmp/test1)
+        echo "F1=$F1" >> $GITHUB_ENV
+        
+        echo "swaggg" > /tmp/test2
+        F2=$(readlink -f /tmp/test2)
+        echo "F2=$F2" >> $GITHUB_ENV
 
     - name: Create a new release
       uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 #v0.1.15
@@ -25,5 +30,5 @@ jobs:
         name: "testname"
         tag_name: "testtagname"
         files: |
-          /tmp/test1
-          /tmp/test2
+          ${{ env.F1 }}
+          ${{ env.F2 }}
