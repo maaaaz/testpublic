@@ -14,9 +14,7 @@ jobs:
     - name: Customize env
       run: |
         set -xe
-        apt-mark showhold
-
-        apt search linux-libc-dev && apt info linux-libc-dev
+        
         cat "yolo" > /tmp/test1
         cat "swag" > /tmp/test2
 
