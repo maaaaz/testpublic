@@ -1,0 +1,37 @@
+name: Test pass info between jobs
+
+on: workflow_dispatch
+
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+    - name: File
+      run: |
+        cd /tmp
+        wget -nv "https://proof.ovh.net/files/100Mb.dat" -O testfile
+        ls -alh testfile
+        sha256sum testfile
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.6.2
+      with:
+          name: testartifact
+          path: /tmp/testfile
+      
+
+  second:
+    needs: first
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v4.2.1
+      with:
+          name: testartifact
+          path: /mnt/testfile
+    
+    - name: Check file
+      run: |
+        cd /mnt/
+        ls -alh testfile
+        sha256sum testfile
