@@ -9,7 +9,7 @@ jobs:
     - name: File
       run: |
         cd /tmp
-        wget -nv "https://proof.ovh.net/files/100Mb.dat" -O testfile
+        wget -nv "https://proof.ovh.net/files/10Mb.dat" -O testfile
         ls -alh testfile
         sha256sum testfile
 
@@ -28,10 +28,10 @@ jobs:
       uses: actions/download-artifact@v4.2.1
       with:
           name: testartifact
-          path: /mnt/testfile
+          path: /tmp/test/testfile
     
     - name: Check file
       run: |
-        cd /mnt/
+        cd /tmp/test/
         ls -alh testfile
         sha256sum testfile
