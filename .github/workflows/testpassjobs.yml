@@ -28,7 +28,7 @@ jobs:
       uses: actions/download-artifact@v4.2.1
       with:
           name: testartifact
-          path: /tmp/test/testfile
+          path: /tmp/test/
     
     - name: Check file
       run: |
